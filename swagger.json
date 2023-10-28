@@ -1,0 +1,152 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "1.0.1",
+    "title": "Oksana Openko server"
+  },
+  "consumers": ["application/json"],
+  "producers": ["application/json"],
+  "servers": [
+    { "url": "" },
+    { "url": "" }
+  ],
+  "tags": [
+    {
+      "name": "Application",
+      "description": "Application endpoints"
+    }
+  ],
+  "paths": {
+    "/api/application": {
+      "post": {
+        "tags": ["Application"],
+        "summary": "Application creation",
+        "parameters": [],
+        "requestBody": {
+          "description": "Application form for sexologist consultation",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateApplicationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Application sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateApplicationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A required field is probably missing or invalid data transmitted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateApplicationRequest": {
+        "type": "object",
+        "required": ["name", "phone", "service", "format"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Oksana Openko"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+380950000000",
+            "description": "Must match this format +380950000000"
+          },
+          "service": {
+            "type": "string",
+            "description": "Service type",
+            "enum": [
+              "Консультація індивідуальна",
+              "Консультація для пари",
+              "Статеве виховання",
+              "Психотерапія",
+              "Запрошений спікер",
+              "Консультація по самодозволенню",
+              "Гра з картками"
+            ],
+            "example": "Консультація індивідуальна"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format type",
+            "enum": ["online", "offline"],
+            "example": "online"
+          },
+          "question": {
+            "type": "string",
+            "example": "Here is a question connected with the application"
+          }
+        }
+      },
+      "CreateApplicationResponse": {
+        "type": "object",
+        "required": ["name", "phone", "service", "format"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Oksana Openko"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+380950000000",
+            "description": "Must match this format +380950000000"
+          },
+          "service": {
+            "type": "string",
+            "description": "Service type",
+            "enum": [
+              "Консультація індивідуальна",
+              "Консультація для пари",
+              "Статеве виховання",
+              "Психотерапія",
+              "Запрошений спікер",
+              "Консультація по самодозволенню",
+              "Гра з картками"
+            ],
+            "example": "Консультація індивідуальна"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format type",
+            "enum": ["online", "offline"],
+            "example": "online"
+          },
+          "question": {
+            "type": "string",
+            "example": "Here is a question connected with the application"
+          }
+        }
+      },
+      "BadRequestResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "\"name\" is required"
+          }
+        }
+      }
+    }
+  }
+}
