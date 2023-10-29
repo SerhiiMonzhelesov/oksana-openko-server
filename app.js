@@ -12,7 +12,7 @@ const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://serhiimonzhelesov.github.io",
   methods: ["GET", "PUT", "POST"],
   optionsSuccessStatus: 204,
   // "200 // some legacy browsers (IE11, various SmartTVs) choke on 204",
