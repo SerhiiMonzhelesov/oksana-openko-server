@@ -23,7 +23,6 @@ const addNewApplication = async (req, res) => {
       parse_mode: "HTML",
     });
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Credentials", "true");
     res.status(201).json({ message: "Data sent successfully" });
   } catch (error) {
     throw HttpError(error.response.statusCode, error.response.statusMessage);
