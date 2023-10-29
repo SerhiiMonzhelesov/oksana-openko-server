@@ -12,10 +12,10 @@ const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://oksana-openko.onreder.com",
   optionsSuccessStatus:
     "200 // some legacy browsers (IE11, various SmartTVs) choke on 204",
-
+  credentials: true,
   // headersAllowed: ["Access-Control-Allow-Origin", "*"]
 };
 
@@ -23,7 +23,7 @@ app.use(logger(formatsLogger));
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use("/api/application", cors(corsOptions), applicationsRouter);
+app.use("/api/application", applicationsRouter);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
