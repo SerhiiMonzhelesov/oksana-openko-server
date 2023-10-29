@@ -24,7 +24,16 @@ const addNewApplication = async (req, res) => {
     await bot.sendMessage(USER_CHAT_ID, message, {
       parse_mode: "HTML",
     });
-
+    res.header(
+      "Access-Control-Allow-Origin",
+      "https://serhiimonzhelesov.github.io"
+    );
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Host, Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-XSRF-TOKEN, Origin, Access-Control-Request-Origin, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin, access-control-allow-origin, Access-Control-Allow-Credentials, access-control-allow-credentials, Access-Control-Allow-Headers, access-control-allow-headers, Access-Control-Allow-Methods, access-control-allow-methods"
+    );
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
     res.status(201).json({ message: "Data sent successfully" });
   } catch (error) {
     throw HttpError(error.response.statusCode, error.response.statusMessage);
