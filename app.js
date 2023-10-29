@@ -11,17 +11,17 @@ const app = express();
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
-const corsOptions = {
-  origin: "*",
-  methods: "POST",
-  optionsSuccessStatus: 204,
-  // "200 // some legacy browsers (IE11, various SmartTVs) choke on 204",
-  credentials: true,
-  headersAllowed: ["Content-Type", "application/json"],
-};
+// const corsOptions = {
+//   origin: "*",
+//   methods: "POST",
+//   optionsSuccessStatus: 204,
+// "200 // some legacy browsers (IE11, various SmartTVs) choke on 204",
+//   credentials: true,
+//   headersAllowed: ["Content-Type", "application/json"],
+// };
 
 app.use(logger(formatsLogger));
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/application", applicationsRouter);
