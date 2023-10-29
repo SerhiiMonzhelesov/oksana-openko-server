@@ -11,8 +11,10 @@ const bot = new TelegramBot(BOT_TOKEN, {
 });
 
 const addNewApplication = async (req, res) => {
+  console.log("req.body: ", req.body);
   try {
     const { name, phone, service, format, question } = req.body;
+
     const message = ` <strong>Ім'я</strong>: ${name},
 <strong>Телефон</strong>: ${phone},
 <strong>Послуга</strong>: ${service},
