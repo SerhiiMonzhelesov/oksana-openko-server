@@ -12,7 +12,7 @@ const app = express();
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 const corsOptions = {
-  origin: "https://oksana-openko.onreder.com",
+  origin: "*",
   optionsSuccessStatus:
     "200 // some legacy browsers (IE11, various SmartTVs) choke on 204",
   credentials: true,
