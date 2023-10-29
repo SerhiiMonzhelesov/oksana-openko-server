@@ -11,8 +11,16 @@ const app = express();
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus:
+    "200 // some legacy browsers (IE11, various SmartTVs) choke on 204",
+  // credentials: true,
+  // headersAllowed: ["Access-Control-Allow-Origin", "*"]
+};
+
 app.use(logger(formatsLogger));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/application", applicationsRouter);

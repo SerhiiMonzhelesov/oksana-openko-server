@@ -7,8 +7,8 @@
   "consumers": ["application/json"],
   "producers": ["application/json"],
   "servers": [
-    { "url": "" },
-    { "url": "" }
+    { "url": "https://oksana-openko.onrender.com/" },
+    { "url": "http://localhost:3000/" }
   ],
   "tags": [
     {
