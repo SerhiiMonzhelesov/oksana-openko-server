@@ -11,16 +11,15 @@ const app = express();
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
-const corsOptions = {
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  optionsSuccessStatus: 204,
-  // "200 // some legacy browsers (IE11, various SmartTVs) choke on 204",
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: "*",
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   optionsSuccessStatus: 204,
+//   credentials: true,
+// };
 
 app.use(logger(formatsLogger));
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/application", applicationsRouter);
