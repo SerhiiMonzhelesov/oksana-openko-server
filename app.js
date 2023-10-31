@@ -11,13 +11,6 @@ const app = express();
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
-// const corsOptions = {
-//   origin: "*",
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   optionsSuccessStatus: 204,
-//   credentials: true,
-// };
-
 app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());

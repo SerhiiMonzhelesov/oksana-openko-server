@@ -23,9 +23,7 @@ const addNewApplication = async (req, res) => {
     await bot.sendMessage(USER_CHAT_ID, message, {
       parse_mode: "HTML",
     });
-    // res.set("Access-Control-Allow-Origin", "http://localhost:3001");
-    // res.set("Access-Control-Allow-Credentials", "true");
-    // res.set("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+
     res.status(201).json({ message: "Data sent successfully" });
   } catch (error) {
     throw HttpError(error.response.statusCode, error.response.statusMessage);
