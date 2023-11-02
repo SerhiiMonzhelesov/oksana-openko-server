@@ -9,4 +9,8 @@ const router = express.Router();
 
 router.post("/", addApplicationValidate, ctrl.addNewApplication);
 
+router.get("/", (req, res) => {
+  res.status(200).json({ message: "server is wake up" });
+});
+
 module.exports = router;
