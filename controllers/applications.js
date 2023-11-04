@@ -4,11 +4,7 @@ const TelegramBot = require("node-telegram-bot-api");
 
 const { BOT_TOKEN, USER_CHAT_ID } = process.env;
 
-const bot = new TelegramBot(BOT_TOKEN, {
-  polling:
-    // true
-    false,
-});
+const bot = new TelegramBot(BOT_TOKEN, { polling: false });
 
 const addNewApplication = async (req, res) => {
   try {
