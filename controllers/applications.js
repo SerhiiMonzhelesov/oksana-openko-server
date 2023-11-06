@@ -1,6 +1,7 @@
+const TelegramBot = require("node-telegram-bot-api");
+
 const { HttpError } = require("../helpers");
 const { ctrlWrapper } = require("../decorators");
-const TelegramBot = require("node-telegram-bot-api");
 
 const { BOT_TOKEN, USER_CHAT_ID } = process.env;
 

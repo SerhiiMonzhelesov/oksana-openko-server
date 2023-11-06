@@ -1,4 +1,5 @@
 const express = require("express");
+
 const ctrl = require("../../controllers/applications");
 const { validateBody } = require("../../decorators");
 const schemas = require("../../schemas/applications");
